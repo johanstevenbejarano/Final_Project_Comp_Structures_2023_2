@@ -22,6 +22,8 @@ void PWM_SendOpen(void);
 // Inicia la secuencia para enviar CLOSE en código Morse.
 void PWM_SendClose(void);
 
+void PWM_Stop(void);
+
 // Actualiza el estado de la máquina de estados Morse.
 void PWM_Morse_Update(void);
 
