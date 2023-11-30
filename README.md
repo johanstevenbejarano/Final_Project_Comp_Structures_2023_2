@@ -43,4 +43,6 @@ This project integrates multiple technologies to create a versatile access contr
 
 
 ## Contact info
+* Deuxtek - nboterod@unal.edu.co
+* bavendanom - bavendanom@unal.edu.co
 * Johan_Bejarano - jobejaranom@unal.edu.co
