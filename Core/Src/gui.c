@@ -11,7 +11,6 @@ void GUI_init(void)
 {
 	ssd1306_Init();
 	GUI_locked();
-
 }
 
 void GUI_locked(void)
@@ -51,6 +50,5 @@ void GUI_update_password_success(void)
 	ssd1306_SetCursor(5, 35);
 	ssd1306_WriteString("Success!", Font_16x26, White);
 	ssd1306_UpdateScreen();
-
 }
 

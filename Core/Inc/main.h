@@ -28,7 +28,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l4xx_hal.h"
-#include "stm32l4xx_ll_tim.h"
 #include "stm32l4xx_ll_usart.h"
 #include "stm32l4xx_ll_rcc.h"
 #include "stm32l4xx_ll_system.h"
@@ -75,14 +74,10 @@ void Error_Handler(void);
 #define LSE_IN_GPIO_Port GPIOC
 #define LSE_OUT_Pin LL_GPIO_PIN_15
 #define LSE_OUT_GPIO_Port GPIOC
-#define Trigger_Pin LL_GPIO_PIN_1
-#define Trigger_GPIO_Port GPIOA
 #define DBG_TX_Pin LL_GPIO_PIN_2
 #define DBG_TX_GPIO_Port GPIOA
 #define DBG_RX_Pin LL_GPIO_PIN_3
 #define DBG_RX_GPIO_Port GPIOA
-#define Echo_Pin LL_GPIO_PIN_4
-#define Echo_GPIO_Port GPIOA
 #define LD2_Pin LL_GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
 #define COL_1_Pin LL_GPIO_PIN_10

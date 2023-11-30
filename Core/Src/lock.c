@@ -3,8 +3,6 @@
 #include "keypad.h"
 #include "main.h"
 #include "gui.h"
-#include "PWM_cont.h"
-
 
 #include <stdio.h>
 #include <string.h>
@@ -16,9 +14,7 @@
 uint8_t password[MAX_PASSWORD] = "1992";
 
 uint8_t keypad_buffer[MAX_PASSWORD];
-
 ring_buffer_t keypad_rb;
-
 
 extern volatile uint16_t keypad_event;
 
@@ -76,7 +72,6 @@ static uint8_t lock_validate_password(void)
 		ring_buffer_get(&keypad_rb, &sequence[idx]);
 	}
 	if (memcmp(sequence, password, 4) == 0) {
-
 		return 1;
 	}
 	return 0;
@@ -89,8 +84,6 @@ static void lock_update_password(void)
 		lock_get_password();
 	} else {
 		GUI_locked();
-
-
 	}
 }
 
@@ -98,48 +91,25 @@ static void lock_open_lock(void)
 {
 	if (lock_validate_password() != 0) {
 		GUI_unlocked();
-		PWM_SendOpen();
-
 	} else {
 		GUI_locked();
-
-}
+	}
 }
 
 void lock_init(void)
 {
 	ring_buffer_init(&keypad_rb, keypad_buffer, 12);
 	GUI_init();
-	PWM_cont_Init();
 }
 
 void lock_sequence_handler(uint8_t key)
 {
 	if (key == '*') {
 		lock_update_password();
-		PWM_SendClose();
 	} else if (key == '#') {
 		lock_open_lock();
-
-	}else if(key == 'D'){
-		PWM_Stop();
-	}else {
+	} else {
 		ring_buffer_put(&keypad_rb, key);
 	}
 
-
-}
-
-uint8_t ultrasonicSensorEnabled = 0; // Variable to check the state of the ultrasonic sensor.
-
-void lock_control_ultrasonic_sensor(uint8_t key) {
-    if (key == 'B') {
-        // Enables the ultrasonic sensor
-    	ultrasonicSensorEnabled = 1;
-        return ;
-    } else if (key == 'C') {
-        // turn off the sensor
-    	ultrasonicSensorEnabled = 0;
-        return ;
-    }
 }
