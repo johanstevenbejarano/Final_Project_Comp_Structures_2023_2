@@ -9,7 +9,7 @@ The user can prompt the digital lock system either by using:
 ![context](context.png)
 
 ## Container Diagram
-The lock system features an STM32L4 as the main processor and an [ESP8266](https://www.espressif.com/en/products/socs/esp8266) as an auxiliar for conenction with the internet (see [ESP-Link](https://github.com/jeelabs/esp-link)). The STM32 controls a hex keypad, a VCOM port for debug, an OLED display for GUI, and an LED for mocking the actuator of the lock system.
+The lock system features an STM32L476RG as the main processor and an [ESP8266](https://www.espressif.com/en/products/socs/esp8266) as an auxiliar for conenction with the internet (see [ESP-Link](https://github.com/jeelabs/esp-link)). The STM32 controls a hex keypad, ultrasonic sensor a VCOM port for debug, an OLED display for GUI, and a PWM output to simulate the actuator of the lock system.
 ![context](contenedor.png)
 
 ## Component Diagram
